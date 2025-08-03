@@ -2,6 +2,17 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { Analytics } from "@vercel/analytics/react";
+
+//Analytics
+function App() {
+  return (
+    <div>
+      {/* Komponen lain */}
+      <Analytics />
+    </div>
+  );
+}
 
 // UTILITIES
 function cn(...inputs) {
