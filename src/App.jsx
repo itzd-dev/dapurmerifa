@@ -470,7 +470,7 @@ const ExpandableTabs = ({ tabs, className }) => {
     <div
       ref={outsideClickRef}
       className={cn(
-        "flex flex-wrap items-center gap-2 rounded-2xl border bg-white/80 backdrop-blur-lg p-1 shadow-lg",
+        "flex flex-wrap items-center justify-center gap-2 rounded-2xl border bg-white/80 backdrop-blur-lg p-1 shadow-lg",
         className
       )}
       style={{ borderColor: "rgba(99, 72, 50, 0.2)" }}
@@ -701,7 +701,7 @@ function DapurMerifaHeader({
   );
 }
 
-// --- FLOATING BOTTOM NAV COMPONENT (UPDATED) ---
+// --- FLOATING BOTTOM NAV COMPONENT ---
 function FloatingBottomNav({ visible }) {
   const tabs = [
     { title: "Home", icon: HomeIcon, href: "#home" },
@@ -743,7 +743,7 @@ function HeroSection() {
       >
         <div className="absolute inset-0 w-full h-full bg-black/50"></div>
       </div>
-      <div className="relative z-10 text-center text-white px-4 pt-20">
+      <div className="relative z-10 text-center text-white px-4">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -757,7 +757,7 @@ function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-          className="text-5xl md:text-7xl font-bold mt-2"
+          className="text-4xl md:text-7xl font-bold mt-2"
         >
           Kelezatan Praktis, Kapan Saja.
         </motion.h1>
@@ -765,7 +765,7 @@ function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-          className="mt-4 mb-8 max-w-2xl mx-auto text-lg text-gray-200"
+          className="mt-4 mb-8 max-w-2xl mx-auto text-base md:text-lg text-gray-200"
         >
           Nikmati kemudahan menyiapkan hidangan istimewa di rumah dengan produk
           pilihan kami yang dibuat dari bahan segar dan resep keluarga.
@@ -777,7 +777,7 @@ function HeroSection() {
         >
           <a
             href="#produk"
-            className="inline-block px-10 py-4 rounded-full font-semibold text-white text-lg transition-transform duration-300 ease-in-out hover:scale-105"
+            className="inline-block px-8 py-3 md:px-10 md:py-4 rounded-full font-semibold text-white text-base md:text-lg transition-transform duration-300 ease-in-out hover:scale-105"
             style={{ backgroundColor: "#634832" }}
           >
             Belanja Sekarang
@@ -797,7 +797,7 @@ function ProductCard({ product, onProductClick, onAddToCart }) {
     onAddToCart(product, 1);
   };
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden group transition-transform duration-300 hover:-translate-y-2 border border-gray-200/80 flex flex-col">
+    <div className="bg-white rounded-lg shadow-md overflow-hidden group transition-transform duration-300 hover:-translate-y-2 border border-gray-200/80 flex flex-col text-center md:text-left">
       <div onClick={() => onProductClick(product)} className="cursor-pointer">
         <div className="relative">
           <img src={image} alt={name} className="w-full h-48 object-cover" />
@@ -811,7 +811,7 @@ function ProductCard({ product, onProductClick, onAddToCart }) {
           <h3 className="text-lg font-semibold text-gray-800 mb-2 truncate">
             {name}
           </h3>
-          <div className="flex items-center mb-2">
+          <div className="flex items-center justify-center md:justify-start mb-2">
             <p className="text-xl font-bold" style={{ color: "#634832" }}>
               Rp{price.toLocaleString("id-ID")}
             </p>
@@ -821,7 +821,7 @@ function ProductCard({ product, onProductClick, onAddToCart }) {
               </p>
             )}
           </div>
-          <div className="flex items-center text-sm text-gray-600 mb-4">
+          <div className="flex items-center justify-center md:justify-start text-sm text-gray-600 mb-4">
             <StarIcon className="w-5 h-5 text-yellow-400" />
             <span className="ml-1">{rating}</span>
             <span className="mx-1">|</span>
@@ -849,7 +849,7 @@ function ProductSection({ onProductClick, onAddToCart }) {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <p className="text-sm text-gray-500 mb-2">Home &gt; Produk</p>
-          <h2 className="text-4xl font-bold text-gray-800">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
             Semua Produk Kami
           </h2>
           <p className="text-gray-600 mt-2 max-w-2xl mx-auto">
@@ -860,7 +860,7 @@ function ProductSection({ onProductClick, onAddToCart }) {
         <div className="flex flex-col md:flex-row gap-8">
           <aside className="w-full md:w-1/4">
             <div className="bg-white p-6 rounded-lg shadow-md sticky top-28">
-              <h3 className="text-xl font-semibold mb-4 text-gray-800">
+              <h3 className="text-xl font-semibold mb-4 text-gray-800 text-center md:text-left">
                 Filter Produk
               </h3>
               <div className="mb-4">
@@ -937,7 +937,7 @@ function ProductDetailSection({
       className="bg-white py-12 md:py-24"
     >
       <div className="container mx-auto px-4">
-        <div className="text-sm text-gray-500 mb-8">
+        <div className="text-sm text-gray-500 mb-8 text-center md:text-left">
           <button onClick={onBackClick} className="hover:text-[#634832]">
             Home
           </button>{" "}
@@ -949,8 +949,8 @@ function ProductDetailSection({
           &gt;
           <span className="text-gray-800"> {product.name}</span>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+          <div className="mx-auto">
             <img
               src={product.image}
               alt={product.name}
@@ -974,11 +974,11 @@ function ProductDetailSection({
               />
             </div>
           </div>
-          <div>
-            <h1 className="text-4xl font-bold text-gray-900 mb-2">
+          <div className="text-center md:text-left">
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
               {product.name}
             </h1>
-            <div className="flex items-center mb-4">
+            <div className="flex items-center justify-center md:justify-start mb-4">
               <div className="flex items-center">
                 <StarIcon className="w-5 h-5 text-yellow-400" />{" "}
                 <span className="ml-1 text-gray-700">
@@ -990,18 +990,21 @@ function ProductDetailSection({
                 Stok Tersedia
               </span>
             </div>
-            <div className="flex items-baseline gap-3 mb-6">
-              <p className="text-4xl font-bold" style={{ color: "#634832" }}>
+            <div className="flex items-baseline justify-center md:justify-start gap-3 mb-6">
+              <p
+                className="text-3xl md:text-4xl font-bold"
+                style={{ color: "#634832" }}
+              >
                 Rp{product.price.toLocaleString("id-ID")}
               </p>
               {product.originalPrice && (
-                <p className="text-xl text-gray-400 line-through">
+                <p className="text-lg md:text-xl text-gray-400 line-through">
                   Rp{product.originalPrice.toLocaleString("id-ID")}
                 </p>
               )}
             </div>
             <p className="text-gray-600 mb-8">{product.description}</p>
-            <div className="flex items-center gap-4 mb-6">
+            <div className="flex flex-col sm:flex-row items-center gap-4 mb-6 max-w-sm mx-auto md:max-w-none md:mx-0">
               <div className="flex items-center border border-gray-300 rounded-full">
                 <button
                   onClick={() => setQuantity((q) => Math.max(1, q - 1))}
@@ -1025,14 +1028,17 @@ function ProductDetailSection({
                 Tambah ke Keranjang
               </button>
             </div>
-            <button className="w-full py-3 rounded-full font-semibold text-[#634832] border border-[#634832] hover:bg-gray-100">
+            <button className="w-full max-w-sm mx-auto md:max-w-none md:mx-0 py-3 rounded-full font-semibold text-[#634832] border border-[#634832] hover:bg-gray-100">
               Beli Sekarang
             </button>
           </div>
         </div>
         <div className="mt-16">
           <div className="border-b border-gray-200">
-            <nav className="-mb-px flex space-x-8" aria-label="Tabs">
+            <nav
+              className="-mb-px flex space-x-8 justify-center md:justify-start"
+              aria-label="Tabs"
+            >
               <button
                 onClick={() => setActiveTab("description")}
                 className={cn(
@@ -1042,7 +1048,7 @@ function ProductDetailSection({
                     : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
                 )}
               >
-                Deskripsi Lengkap
+                Deskripsi
               </button>
               <button
                 onClick={() => setActiveTab("serving")}
@@ -1053,7 +1059,7 @@ function ProductDetailSection({
                     : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
                 )}
               >
-                Cara Penyajian
+                Penyajian
               </button>
               <button
                 onClick={() => setActiveTab("reviews")}
@@ -1064,11 +1070,11 @@ function ProductDetailSection({
                     : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
                 )}
               >
-                Ulasan Pelanggan
+                Ulasan
               </button>
             </nav>
           </div>
-          <div className="py-6 text-gray-600">
+          <div className="py-6 text-gray-600 text-center md:text-left">
             {activeTab === "description" && <p>{product.description}</p>}
             {activeTab === "serving" && <p>{product.servingSuggestion}</p>}
             {activeTab === "reviews" && (
@@ -1079,7 +1085,7 @@ function ProductDetailSection({
           </div>
         </div>
         <div className="mt-16">
-          <h2 className="text-2xl font-bold text-gray-800 mb-6">
+          <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
             Anda Mungkin Juga Suka
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -1120,7 +1126,7 @@ function CartSection({
       className="bg-gray-50 py-12 md:py-24"
     >
       <div className="container mx-auto px-4">
-        <h1 className="text-4xl font-bold text-center mb-10 text-gray-800">
+        <h1 className="text-3xl md:text-4xl font-bold text-center mb-10 text-gray-800">
           Keranjang Belanja Anda
         </h1>
         {cart.length === 0 ? (
@@ -1139,11 +1145,11 @@ function CartSection({
           </div>
         ) : (
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <div className="lg:col-span-2 bg-white p-6 rounded-lg shadow-md">
+            <div className="lg:col-span-2 bg-white p-4 md:p-6 rounded-lg shadow-md">
               {cart.map((item) => (
                 <div
                   key={item.id}
-                  className="flex items-center gap-4 border-b py-4 last:border-b-0"
+                  className="flex flex-col sm:flex-row items-center text-center sm:text-left gap-4 border-b py-4 last:border-b-0"
                 >
                   <img
                     src={item.image}
@@ -1178,7 +1184,7 @@ function CartSection({
                     </button>
                   </div>
                   <p
-                    className="font-semibold w-32 text-right"
+                    className="font-semibold w-32 text-center sm:text-right"
                     style={{ color: "#634832" }}
                   >
                     Rp{(item.price * item.quantity).toLocaleString("id-ID")}
@@ -1255,7 +1261,7 @@ function CheckoutSection({ cart, onBackToCart, onOrderComplete }) {
     <div className="flex justify-center items-center mb-12">
       {[1, 2, 3].map((s, index) => (
         <React.Fragment key={s}>
-          <div className="flex items-center">
+          <div className="flex flex-col md:flex-row items-center">
             <div
               className={cn(
                 "w-10 h-10 rounded-full flex items-center justify-center font-bold",
@@ -1268,7 +1274,7 @@ function CheckoutSection({ cart, onBackToCart, onOrderComplete }) {
             </div>
             <p
               className={cn(
-                "ml-3 font-semibold",
+                "ml-0 md:ml-3 mt-2 md:mt-0 font-semibold text-sm",
                 step >= s ? "text-gray-800" : "text-gray-500"
               )}
             >
@@ -1278,7 +1284,7 @@ function CheckoutSection({ cart, onBackToCart, onOrderComplete }) {
           {index < 2 && (
             <div
               className={cn(
-                "flex-auto border-t-2 mx-4",
+                "flex-auto border-t-2 mx-2 md:mx-4",
                 step > s ? "border-[#634832]" : "border-gray-200"
               )}
             ></div>
@@ -1368,7 +1374,7 @@ function CheckoutSection({ cart, onBackToCart, onOrderComplete }) {
       <div className="container mx-auto px-4">
         <ProgressIndicator />
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-2 bg-white p-8 rounded-lg shadow-md">
+          <div className="lg:col-span-2 bg-white p-6 md:p-8 rounded-lg shadow-md">
             {step === 1 && (
               <div>
                 <h2 className="text-2xl font-bold mb-6">
@@ -1501,9 +1507,7 @@ function CheckoutSection({ cart, onBackToCart, onOrderComplete }) {
               }
               className="w-full text-center text-sm text-gray-600 hover:text-[#634832] mt-4"
             >
-              {step > 1
-                ? "Kembali ke langkah sebelumnya"
-                : "Kembali ke Keranjang"}
+              {step > 1 ? "Kembali" : "Kembali ke Keranjang"}
             </button>
           </div>
           <div className="lg:col-span-1">
@@ -1574,7 +1578,9 @@ function ContactSection() {
     <section id="kontak" className="py-20 bg-[#efecea]">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-800">Hubungi Kami</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
+            Hubungi Kami
+          </h2>
           <p className="text-gray-600 mt-2 max-w-2xl mx-auto">
             Punya pertanyaan atau ingin bekerja sama? Jangan ragu untuk
             menghubungi kami.
@@ -1646,7 +1652,7 @@ function ContactSection() {
                 </button>
               </div>
             </form>
-            <div className="mt-8 border-t pt-6">
+            <div className="mt-8 border-t pt-6 text-center md:text-left">
               <h3 className="text-xl font-semibold mb-4 text-gray-800">
                 Informasi Kontak
               </h3>
@@ -1718,11 +1724,27 @@ function PromoSection() {
     </div>
   );
 
+  const MobilePromoCard = ({ bgImage, title, subtitle, buttonText }) => (
+    <div
+      className="relative rounded-2xl overflow-hidden group h-48 bg-cover bg-center"
+      style={{ backgroundImage: `url('${bgImage}')` }}
+    >
+      <div className="absolute inset-0 bg-black/40"></div>
+      <div className="relative z-10 p-6 flex flex-col h-full text-white">
+        <h3 className="text-2xl font-bold">{title}</h3>
+        <p className="mt-1 text-sm opacity-90">{subtitle}</p>
+        <button className="mt-auto self-start flex items-center gap-2 px-4 py-2 rounded-full font-semibold text-xs bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-colors">
+          {buttonText} <ArrowRightIcon />
+        </button>
+      </div>
+    </div>
+  );
+
   return (
-    <section id="promo" className="hidden lg:block py-20 bg-white">
+    <section id="promo" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-800">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
             Promo Spesial Bulan Ini
           </h2>
           <p className="text-gray-600 mt-2 max-w-2xl mx-auto">
@@ -1731,8 +1753,8 @@ function PromoSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4 md:gap-6 h-[600px]">
-          {/* Main Banner */}
+        {/* Desktop Promo Grid */}
+        <div className="hidden lg:grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4 md:gap-6 h-[600px]">
           <BentoCard
             className="md:col-span-2 md:row-span-2 bg-cover bg-center"
             style={{
@@ -1746,8 +1768,6 @@ function PromoSection() {
               buttonText="Belanja Diskon"
             />
           </BentoCard>
-
-          {/* Bundle Banner */}
           <BentoCard
             className="md:col-span-2 bg-cover bg-center"
             style={{
@@ -1761,8 +1781,6 @@ function PromoSection() {
               buttonText="Lihat Paket"
             />
           </BentoCard>
-
-          {/* Free Shipping Banner */}
           <BentoCard
             className="bg-cover bg-center"
             style={{
@@ -1776,8 +1794,6 @@ function PromoSection() {
               buttonText="Cek Area"
             />
           </BentoCard>
-
-          {/* New Product Banner */}
           <BentoCard
             className="bg-cover bg-center"
             style={{
@@ -1791,6 +1807,22 @@ function PromoSection() {
               buttonText="Pesan Sekarang"
             />
           </BentoCard>
+        </div>
+
+        {/* Mobile Promo List */}
+        <div className="lg:hidden grid grid-cols-1 gap-4">
+          <MobilePromoCard
+            bgImage="https://images.unsplash.com/photo-1513135237623-49162b7cfb95?q=80&w=1974&auto=format&fit=crop"
+            title="DISKON 17%!"
+            subtitle="Promo Merdeka hingga 31 Agustus."
+            buttonText="Belanja Diskon"
+          />
+          <MobilePromoCard
+            bgImage="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1974&auto=format&fit=crop"
+            title="PAKET HEMAT"
+            subtitle="3 produk pilihan Rp99.000."
+            buttonText="Lihat Paket"
+          />
         </div>
       </div>
     </section>
@@ -1822,7 +1854,7 @@ function AboutSection() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-gray-800">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
             Cerita Hangat dari Dapur Merifa
           </h2>
           <p className="text-gray-600 mt-4 max-w-3xl mx-auto">
@@ -1840,7 +1872,7 @@ function AboutSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-            className="md:pr-12"
+            className="md:pr-12 text-center md:text-left"
           >
             <h3
               className="text-lg font-semibold uppercase tracking-wider mb-2"
@@ -1848,7 +1880,7 @@ function AboutSection() {
             >
               Sebuah Perjalanan dari Hati
             </h3>
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
               Kisah Pendiri Kami, <br /> Merlin Nur Pratiwi
             </h2>
             <p className="text-gray-700 leading-relaxed mt-4">
@@ -1871,7 +1903,7 @@ function AboutSection() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative h-[500px]"
+            className="relative h-[400px] md:h-[500px]"
           >
             <img
               src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?q=80&w=1951&auto=format&fit=crop"
@@ -2143,8 +2175,8 @@ export default function App() {
           />
         )}
       </AnimatePresence>
-      <Analytics />
       <SpeedInsights />
+      <Analytics />
     </main>
   );
 }
