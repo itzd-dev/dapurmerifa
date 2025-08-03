@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 // UTILITIES
 function cn(...inputs) {
@@ -2143,6 +2144,7 @@ export default function App() {
         )}
       </AnimatePresence>
       <Analytics />
+      <SpeedInsights />
     </main>
   );
 }
