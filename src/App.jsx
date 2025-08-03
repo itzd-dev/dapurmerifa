@@ -2109,6 +2109,12 @@ export default function App() {
         .aspect-\\[4\\/5\\] { aspect-ratio: 4 / 5; }
       `}</style>
 
+      {/* analytics */}
+      <div>
+        {/* Komponen aplikasi Anda */}
+        <Analytics />
+      </div>
+
       {/* Kondisional rendering untuk header */}
       {view === "home" ? (
         <>
@@ -2142,7 +2148,6 @@ export default function App() {
           />
         )}
       </AnimatePresence>
-      <Analytics />
     </main>
   );
 }
