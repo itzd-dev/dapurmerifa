@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 // UTILITIES
 function cn(...inputs) {
