@@ -4,16 +4,6 @@ import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { Analytics } from "@vercel/analytics/react";
 
-//Analytics
-function App() {
-  return (
-    <div>
-      {/* Komponen lain */}
-      <Analytics />
-    </div>
-  );
-}
-
 // UTILITIES
 function cn(...inputs) {
   return twMerge(clsx(inputs));
@@ -2152,6 +2142,7 @@ export default function App() {
           />
         )}
       </AnimatePresence>
+      <Analytics />
     </main>
   );
 }
