@@ -560,7 +560,7 @@ function DapurMerifaHeader({
             className={cn(
               "fixed top-4 inset-x-0 max-w-3xl mx-auto z-[5000]",
               "flex items-center justify-between",
-              "rounded-full border shadow-sm px-4 md:px-6 py-2"
+              "rounded-full border shadow-sm px-3 sm:px-6 py-2"
             )}
             style={{
               borderColor: "rgba(99, 72, 50, 0.2)",
@@ -570,7 +570,7 @@ function DapurMerifaHeader({
           >
             <button
               onClick={onLogoClick}
-              className="text-xl font-bold"
+              className="text-lg sm:text-xl font-bold"
               style={{ color: "#634832" }}
             >
               Dapur Merifa
@@ -606,7 +606,7 @@ function DapurMerifaHeader({
                 </a>
               ))}
             </div>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2 sm:gap-4">
               <button
                 className="hidden md:block px-4 py-2 rounded-full font-semibold text-white text-sm transition-transform hover:scale-105"
                 style={{ backgroundColor: "#634832" }}
@@ -656,7 +656,7 @@ function DapurMerifaHeader({
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="fixed top-0 right-0 h-full w-4/5 max-w-xs z-[6001] md:hidden p-6"
+              className="fixed top-0 right-0 h-full w-2/3 max-w-xs z-[6001] md:hidden p-6"
               style={{
                 backgroundColor: "rgba(239, 236, 234, 0.95)",
                 backdropFilter: "blur(15px)",
@@ -671,7 +671,7 @@ function DapurMerifaHeader({
                   <CloseIcon />
                 </button>
               </div>
-              <div className="flex flex-col items-start space-y-6">
+              <div className="flex flex-col items-center text-center space-y-6">
                 {navLinks.map((link) => (
                   <a
                     key={link.name}
@@ -808,21 +808,21 @@ function ProductCard({ product, onProductClick, onAddToCart }) {
           )}
         </div>
         <div className="p-4 pb-0">
-          <h3 className="text-lg font-semibold text-gray-800 mb-2 truncate">
+          <h3 className="text-base font-semibold text-gray-800 mb-2 truncate">
             {name}
           </h3>
           <div className="flex items-center justify-center md:justify-start mb-2">
-            <p className="text-xl font-bold" style={{ color: "#634832" }}>
+            <p className="text-lg font-bold" style={{ color: "#634832" }}>
               Rp{price.toLocaleString("id-ID")}
             </p>
             {originalPrice && (
-              <p className="text-sm text-gray-500 line-through ml-2">
+              <p className="text-xs text-gray-500 line-through ml-2">
                 Rp{originalPrice.toLocaleString("id-ID")}
               </p>
             )}
           </div>
-          <div className="flex items-center justify-center md:justify-start text-sm text-gray-600 mb-4">
-            <StarIcon className="w-5 h-5 text-yellow-400" />
+          <div className="flex items-center justify-center md:justify-start text-xs text-gray-600 mb-4">
+            <StarIcon className="w-4 h-4 text-yellow-400" />
             <span className="ml-1">{rating}</span>
             <span className="mx-1">|</span>
             <span>{reviews} ulasan</span>
@@ -832,10 +832,10 @@ function ProductCard({ product, onProductClick, onAddToCart }) {
       <div className="p-4 pt-0 mt-auto">
         <button
           onClick={handleAddToCart}
-          className="w-full py-2 rounded-lg font-semibold text-white transition-colors duration-300"
+          className="w-full py-2 rounded-lg font-semibold text-white transition-colors duration-300 text-sm"
           style={{ backgroundColor: "#634832" }}
         >
-          Tambah ke Keranjang
+          Tambah
         </button>
       </div>
     </div>
@@ -897,7 +897,7 @@ function ProductSection({ onProductClick, onAddToCart }) {
             </div>
           </aside>
           <main className="w-full md:w-3/4">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
               {allProducts.slice(0, 8).map((product) => (
                 <ProductCard
                   key={product.id}
@@ -1088,7 +1088,7 @@ function ProductDetailSection({
           <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
             Anda Mungkin Juga Suka
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {relatedProducts.map((p) => (
               <ProductCard
                 key={p.id}
@@ -1847,13 +1847,7 @@ function AboutSection() {
   return (
     <section id="tentang" className="py-20 bg-[#efecea] overflow-hidden">
       <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
             Cerita Hangat dari Dapur Merifa
           </h2>
@@ -1864,7 +1858,7 @@ function AboutSection() {
             hanya praktis, tetapi juga sehat dan lezat, layaknya masakan seorang
             ibu untuk keluarganya.
           </p>
-        </motion.div>
+        </div>
 
         <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center mb-20">
           <motion.div
@@ -2175,8 +2169,8 @@ export default function App() {
           />
         )}
       </AnimatePresence>
-      <SpeedInsights />
       <Analytics />
+      <SpeedInsights />
     </main>
   );
 }
